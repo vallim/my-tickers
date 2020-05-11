@@ -1,4 +1,3 @@
-using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
@@ -19,9 +18,11 @@ namespace my_tickers.Repositories
             _database = new NpgsqlConnection(configuration.GetSection("DbConnectionString").Value);
         }
         
-        public void Save(Ticker ticker)
+        public Ticker Save(Ticker ticker)
         {
-            throw new NotImplementedException();
+            var affectedRows = _database.Execute("INSERT INTO tickers (code, type, trading_name) VALUES (@code, @type, @tradingName);", new { code = ticker.Code, type = ticker.Type, tradingName = ticker.TradingName });
+
+            return affectedRows > 0 ? ticker : null;
         }
 
         public List<Ticker> GetAll()

@@ -5,7 +5,7 @@ namespace my_tickers.Repositories.Contracts
 {
     public interface ITickersRepository
     {
-        public void Save(Ticker ticker);
+        public Ticker Save(Ticker ticker);
         
         public List<Ticker> GetAll();
     }

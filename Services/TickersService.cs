@@ -18,5 +18,10 @@ namespace my_tickers.Services
         {
             return _tickersRepository.GetAll();
         }
+
+        public Ticker Save(Ticker ticker)
+        {
+            return _tickersRepository.Save(ticker);
+        }
     }
 }

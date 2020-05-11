@@ -23,5 +23,13 @@ namespace my_tickers.Controllers
             
             return Ok(tickers);
         }
+        
+        [HttpPost]
+        public ActionResult<Ticker> Create([FromBody] Ticker ticker)
+        {
+            var persistedTicker = _tickersService.Save(ticker);
+            
+            return Ok(persistedTicker);
+        }
     }
 }

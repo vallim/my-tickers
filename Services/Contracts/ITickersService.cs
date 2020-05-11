@@ -6,6 +6,7 @@ namespace my_tickers.Services.Contracts
     public interface ITickersService
     {
 
-        public List<Ticker> GetAll();
+        List<Ticker> GetAll();
+        Ticker Save(Ticker ticker);
     }
 }
