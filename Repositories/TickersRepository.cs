@@ -27,7 +27,7 @@ namespace my_tickers.Repositories
 
         public List<Ticker> GetAll()
         {
-            return _database.Query<Ticker>("SELECT * FROM tickers").ToList();
+            return _database.Query<Ticker>("SELECT code, type, trading_name as tradingName FROM tickers").ToList();
         }
     }
 }
